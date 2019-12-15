@@ -20,9 +20,7 @@ def classify():
     # train the model
     print("Training the model...")
     clf = svm.SVC()
-    start_time = time.time()
     clf.fit(training_data[0], training_data[1])
-    training_time = round(time.time() - start_time, 3)
     # test the model
     correct = 0
     for i, prediction in enumerate(clf.predict(test_data[0])):
@@ -35,7 +33,6 @@ def classify():
     print(
         f"\n{str(correct)} of {str(len(test_data[1]))} values correct ({percentage}% accuracy)"
     )
-    print(f"The model took {training_time} seconds to train.")
 
 
 classify()
