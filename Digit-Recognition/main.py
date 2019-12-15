@@ -1,7 +1,6 @@
 """Digit recognition algorithm using a state vector machine and the MNIST dataset"""
 import gzip
 import pickle
-import time
 
 from sklearn import svm
 
