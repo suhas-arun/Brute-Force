@@ -12,11 +12,11 @@ def extract_file(zip_file, password):
 
 # creates a list storing all the possible passwords
 words: list = []
-with open("words.txt", "r") as f:
+with open("Brute-Force/words.txt", "r") as f:
     for word in f:
         words.append(word.rstrip("\n"))
 
-ZIP_FILE = zipfile.ZipFile("test.zip")
+ZIP_FILE = zipfile.ZipFile("Brute-Force/test.zip")
 
 for word in words:
     print('Trying "{}"'.format(word))
