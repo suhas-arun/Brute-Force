@@ -49,13 +49,13 @@ def validate_args():
         print("Please make sure you choose a file that exists in the current directory")
         sys.exit(1)
 
-    if file_name[-3:] != "png":  # if file extension is not .jpg or .png
+    if file_name[-3:] != "png":  # if file extension is not .png
         print("File format unsupported. Please choose a .png file")
         sys.exit(1)
 
 
 def make_msg_binary(msg):
-    """converts the message to be encoded into an 8 bit binary code
+    """converts the message to be encoded into 8 bit binary codes
     so it can be added to the pixels"""
 
     binary_msg = []
