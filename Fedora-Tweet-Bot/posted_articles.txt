@@ -1118,3 +1118,4 @@ How to rebase to Fedora 31 on Silverblue
 Organizing those 1s and 0s
 Setting up the sway window manager on Fedora
 Make sysadmin work on Fedora easier with screen
+Firefox GNOME search provider
