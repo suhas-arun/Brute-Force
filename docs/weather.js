@@ -40,7 +40,7 @@ function getWeather(city){
             // note these times are in UTC and need to be converted
 
             //gets the time zone of the city
-            fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=${timeZoneKey}&format=json&by=position&lat=${city.coord.lat}&lng=${city.coord.lon}`)
+            fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${timeZoneKey}&format=json&by=position&lat=${city.coord.lat}&lng=${city.coord.lon}`)
                 .then(response => response.json())
                 .then(data => data.gmtOffset)
                 .then(timeDiff => {
