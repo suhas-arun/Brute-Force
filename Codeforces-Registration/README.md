@@ -3,7 +3,7 @@
 The script does the following:
 
 * Opens https://codeforces.com/register in the default browser.
-* Gets input from the user for handle, email and passwords (passwords are entered using `getpass` i.e. they are not echoed in the terminal).
+* Gets input from the user for handle, email and password (passwords are entered using `getpass` i.e. they are not echoed in the terminal).
 * Asks the user to confirm the password and if it does not match the first entry, there is a suitable message and the program stops.
 * Finds the input elements for handle, email and password on the website using their xpath.
 * Fills in these fields with the entered data.
