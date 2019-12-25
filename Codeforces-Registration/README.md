@@ -10,3 +10,5 @@ The script does the following:
 * Finds the register button on the page and clicks it.
 
 [succesful-registration.png](https://github.com/suhas-arun/Google-Code-In/blob/master/Codeforces-Registration/successful-registration.png) is a screenshot of my window after the program executed showing that registration was successful.
+
+![Successful Registration](https://github.com/suhas-arun/Google-Code-In/blob/master/Codeforces-Registration/successful-registration.png)
