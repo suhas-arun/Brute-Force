@@ -1,6 +1,6 @@
 # Image Manipulation with Python (For Google Code-In)
 
-The program uses the `PIL` library in Python to scale images down so that the longest dimension is 400px. It also adjusts the quality of the images (if necessary) so that the size does not exceed 64KB.
+The program uses the `PIL` library in Python to scale images down so that the longest dimension is 400px. It also converts the images to JPEG and adjusts the quality (if necessary) so that the size does not exceed 64KB.
 
 The program takes input from the user of a directory containing the images and saves the scaled images in a new directory called new-images.
 
