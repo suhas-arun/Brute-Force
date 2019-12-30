@@ -66,7 +66,7 @@ def save_file(directory, file_name, new_image):
     name = file_name.split(".")[0]
     new_file_name = f"{name}_new.jpg"
 
-    path = f"new-images\\{new_file_name}"
+    path = f"{directory}\\new-images\\{new_file_name}"
 
     new_image = new_image.convert("RGB")
 
@@ -93,7 +93,7 @@ def save_file(directory, file_name, new_image):
 if __name__ == "__main__":
     directory = get_directory()
 
-    new_dir = "new-images"
+    new_dir = f"{directory}\\new-images"
     if not os.path.exists(new_dir):
         os.mkdir(new_dir)
 

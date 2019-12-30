@@ -4,4 +4,4 @@ The program uses the `PIL` library in Python to scale images down so that the lo
 
 The program takes input from the user of a directory containing the images and saves the scaled images in a new directory called new-images.
 
-I used some example [images](https://github.com/suhas-arun/Google-Code-In/blob/master/Image-Manipulation/images) from Google and the program created a [new directory with the scaled images.](https://github.com/suhas-arun/Google-Code-In/blob/master/Image-Manipulation/new-images)
+I used some example [images](https://github.com/suhas-arun/Google-Code-In/blob/master/Image-Manipulation/images) from Google and the program created a [new directory with the scaled images.](https://github.com/suhas-arun/Google-Code-In/blob/master/Image-Manipulation/images/new-images)
