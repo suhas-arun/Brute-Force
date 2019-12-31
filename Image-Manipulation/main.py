@@ -11,18 +11,17 @@ from PIL import Image
 def get_directory():
     """gets user input for the directory containing the image files to be scaled"""
     directory = input("Enter the directory with the images: ")
-    if directory not in os.listdir():
+    if not os.path.exists(directory):
         print("Directory not found")
         sys.exit(1)
 
-    # \\ is used as I made this on Windows
-    path = os.getcwd() + f"\\{directory}"
-    return path
+    return directory
 
 
 def get_image(directory, file_name):
     """returns the image from the file name"""
     try:
+        # I used \\ as I made this on windows
         path = f"{directory}\\{file_name}"
         image = Image.open(path)
     except IOError:
