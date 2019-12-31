@@ -21,8 +21,7 @@ def get_directory():
 def get_image(directory, file_name):
     """returns the image from the file name"""
     try:
-        # I used \\ as I made this on windows
-        path = f"{directory}\\{file_name}"
+        path = f"{directory}/{file_name}"
         image = Image.open(path)
     except IOError:
         print("Unsupported file type")
@@ -65,7 +64,7 @@ def save_file(directory, file_name, new_image):
     name = file_name.split(".")[0]
     new_file_name = f"{name}_new.jpg"
 
-    path = f"{directory}\\new-images\\{new_file_name}"
+    path = f"{directory}/new-images/{new_file_name}"
 
     new_image = new_image.convert("RGB")
 
@@ -82,7 +81,7 @@ def save_file(directory, file_name, new_image):
 
     print(
         f"""Successfully resized.\n
-    Path: new_images\\{new_file_name}\n\
+    Path: new_images/{new_file_name}\n\
     Dimensions: {new_image.size}\n\
     Size: {round(file_size, 2)}KB\n\
     Quality: {quality}\n"""
@@ -92,12 +91,12 @@ def save_file(directory, file_name, new_image):
 if __name__ == "__main__":
     directory = get_directory()
 
-    new_dir = f"{directory}\\new-images"
+    new_dir = f"{directory}/new-images"
     if not os.path.exists(new_dir):
         os.mkdir(new_dir)
 
     for file_name in os.listdir(directory):
-        if os.path.isfile(f"{directory}\\{file_name}"):
+        if os.path.isfile(f"{directory}/{file_name}"):
             image = get_image(directory, file_name)
             new_image = resize(image)
             save_file(directory, file_name, new_image)
