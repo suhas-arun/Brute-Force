@@ -10,7 +10,6 @@ from PIL import Image, ImageTk
 
 root = tkinter.Tk()
 root.title("Google News API")
-root.state("zoomed")
 
 URL = (
     "https://newsapi.org/v2/everything?"
