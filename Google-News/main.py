@@ -40,8 +40,8 @@ def open_article(url):
 
 
 for i in range(6):
-    article_frame = tkinter.Frame(relief="ridge", padx=5, pady=10, bd=2)
-    article_frame.grid(row=(2 * i) % 6 + 2, column=0 if i < 3 else 1, padx=10, pady=10)
+    article_frame = tkinter.Frame(relief="ridge", padx=10, pady=5, bd=2)
+    article_frame.grid(row=(2 * i) % 6 + 2, column=0 if i < 3 else 1, padx=5, pady=5)
     article = articles[i]
 
     IMG_SIZE = (150, 150)
