@@ -14,4 +14,4 @@ Press Ctrl + C to stop the bot.
 
 Below is a conversation with @FedoraInfraBot:
 
-![Conversation with the bot](https://github.com/suhas-arun/Google-Code-In/tree/master/Fedora-Telegram-Bot/example.png)
+![Conversation with the bot](./example.png)
