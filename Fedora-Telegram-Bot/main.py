@@ -10,7 +10,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 # callback functions:
 
 
-def start(update, *_):
+def start(update, _):
     """Send a start message when the /start command is used"""
 
     update.message.reply_text(
@@ -18,27 +18,39 @@ def start(update, *_):
     )
 
 
-def help_command(update, *_):
+def help_command(update, _):
     """Show the available commands when /help is used"""
 
     update.message.reply_text(
-        "/start: Show the bot's starting message\n/forks: Get the number of forks from the Fedora-Infra repositories\n/help: Show this help message"
+        "/start: Show the bot's starting message\n\n/forks [repo name]: Get the number of forks of a Fedora-Infra repository\n\n/help: Show this help message"
     )
 
 
-def forks(update, *_):
-    """Show the number of forks from the Fedora-Infra repos when /forks is used"""
+def forks(update, context):
+    """Show the number of forks of a Fedora-Infra repo"""
 
-    forks_count, most_forked, highest_fork_count = get_forks()
+    repo_name = " ".join(context.args)
 
-    url = "https://github.com/fedora-infra"
+    if not repo_name:
+        update.message.reply_text(
+            "Please include a repository name with the /forks command."
+        )
+        return
 
-    update.message.reply_text(
-        f"The Fedora-Infra repositories currently have {forks_count} total forks\nThe most forked repository is '{most_forked}' with {highest_fork_count} forks\n\nVisit the Fedora Infrastructure Github page here:\n{url}"
-    )
+    repo_info = get_repo_forks(repo_name)
+
+    if repo_info:
+        fork_count, url = repo_info
+        update.message.reply_text(
+            f"'{repo_name}' has {fork_count} forks.\n\nVisit the repository here\n{url}."
+        )
+    else:
+        update.message.reply_text(
+            f"The '{repo_name}' repository could not be found.\nPlease try another repository."
+        )
 
 
-def unknown(update, *_):
+def unknown(update, _):
     """Send a message when an unknown command is used"""
 
     update.message.reply_text(
@@ -46,32 +58,33 @@ def unknown(update, *_):
     )
 
 
-def get_forks():
-    """Fetch number of forks from the Fedora-infra repos and the most forked repo"""
+def get_repos_data():
+    """Returns the repo data for the fedora-infra repos"""
 
     url = "https://api.github.com/orgs/fedora-infra/repos"
     response = requests.get(url)
     repos = response.json()
 
-    forks_count = 0
-    most_forked = ""
-    highest_fork_count = 0
+    return repos
+
+
+def get_repo_forks(name):
+    """Fetch number of forks from a Fedora-infra repo"""
+
+    repos = get_repos_data()
 
     for repo in repos:
-        fork_count = repo["forks_count"]
-        forks_count += fork_count
+        if repo["name"] == name:
+            fork_count = repo["forks_count"]
+            url = repo["html_url"]
 
-        if fork_count > highest_fork_count:
-            most_forked = repo["name"]
-            highest_fork_count = fork_count
-
-    return (forks_count, most_forked, highest_fork_count)
+            return (fork_count, url)
 
 
 def main():
     """main function"""
 
-    token = "1027172895:AAEKPuL-9wYVI2kCUzNFNQ1wjFkYROqqrek"
+    token = ""
 
     updater = Updater(token, use_context=True)
 

@@ -2,12 +2,12 @@
 
 The bot has the following commands: 
 * `/start`
-* `/forks`
+* `/forks [repo name]`
 * `/help`
 
-`/forks` displays the total number of forks of the fedora-infra repositories on Github. This is done by calling the Github API and then totalling the `forks_count` value for each repository. These values are also used to find the repository with the most forks.
+`/forks [repo name]` displays the number of forks of a specific fedora-infra repository on Github. This is done by calling the Github API and scraping the `forks_count` value (as well as the `html_url` so that the user can visit the repository).
 
-The code is in [main.py](https://github.com/suhas-arun/Google-Code-In/tree/master/Fedora-Telegram-Bot/main.py). For the callback functions, `*_` is used as the second argument as there is usually an extra argument for `context` which is not used in the functions.
+The code is in [main.py](https://github.com/suhas-arun/Google-Code-In/tree/master/Fedora-Telegram-Bot/main.py).
 
 Press Ctrl + C to stop the bot.
 
