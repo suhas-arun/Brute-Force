@@ -49,9 +49,11 @@ def get_month(month_no):
         "may",
         "june",
         "july",
+        "august",
         "september",
         "october",
-        "december",
+        "november",
+        "december"
     ]
 
     month = months[int(month_no) - 1]
