@@ -10,14 +10,9 @@ WEBSITES = {
 }
 
 username = input("Enter username: ")
-found = False
 for name, url in WEBSITES.items():
     response = requests.get(url + username)
     if response.status_code == 200:
         print(f"'{username}' is on {name}")
-        found = True
     else:
         print(f"'{username}' is not on {name}")
-
-if not found:
-    print(f"'{username}' is not on Instagram, Github or Twitter ")
