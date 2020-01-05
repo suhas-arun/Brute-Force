@@ -1,0 +1,8 @@
+- hosts: localhost
+  tasks:
+    - name: Getting HTTP Reponse Status Code...
+      get_status:
+        url: https://getfedora.org
+      register: output
+    - debug:
+        var: output
