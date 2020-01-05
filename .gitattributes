@@ -1,2 +1,2 @@
-# to change language of repo from Jupyter Notebook to Python
- *.ipynb linguist-language=Python
+# Ignore Jupyter notebooks in language statistics otherwise the repo language is Jupyter notebook (as the files take up the most space)
+ *.ipynb linguist-vendored=false
