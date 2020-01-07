@@ -83,7 +83,7 @@ def show_board(board):
             )
 
     # Add queens to board
-    font = ImageFont.truetype("arialbd.ttf", 18)
+    font = ImageFont.truetype("./arialbd.ttf", 18)
     for x_pos, row in enumerate(board):
         for y_pos, square in enumerate(row):
             if square == 1:
