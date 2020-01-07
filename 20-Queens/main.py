@@ -47,13 +47,13 @@ def solve(board, y_pos=0):
     for x_pos in range(0, size):
         if y_pos == 0:
             x_pos = random.randint(0, size)
-        if check_square(board, y_pos, x_pos):
-            board[x_pos][y_pos] = 1
+        if check_square(board, x_pos, y_pos):
+            board[y_pos][x_pos] = 1
             if y_pos == size - 1:
                 show_board(board)
             else:
                 solve(board, y_pos + 1)
-                board[x_pos][y_pos] = 0
+                board[y_pos][x_pos] = 0
 
 
 def show_board(board):
