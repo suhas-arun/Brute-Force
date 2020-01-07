@@ -8,4 +8,4 @@ The recursive function `solve` places a queen on the first square in the current
 
 In the first row, the position of the queen is randomly generated so that a different board is produced each time the program is run. Note, this randomness sometimes leads to a great difference in time taken to generate the board.
 
-I used the `PIL` library to create an image of the board with the queens on it. [board.png](./board.png) is just one example of an image of the board but if the program is run again then the file will be updated with the image of a new board that is (almost definitely) different.
+I used the `PIL` library to create an image of the board with the queens on it. [board.png](./board.png) is just one example of an image of the board but if the program is run again then the file will be updated with the image of a new board that is (almost definitely) different. [arialbd.ttf](./arialbd.ttf) is the bold font used in the image.
