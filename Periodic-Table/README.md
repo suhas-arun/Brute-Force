@@ -44,10 +44,12 @@ The hints are:
 2. The type of element
 3. The state of matter at room temperature
 
-After 3 the user is out of hints:
+After 3, the user is out of hints:
+
 ![No more hints](./images/no-hints.png)
 
 If a player's answer is a valid element but not the right one, the element's name and atomic number are shown:
+
 ![Valid element](./images/valid-element.png)
 
 
