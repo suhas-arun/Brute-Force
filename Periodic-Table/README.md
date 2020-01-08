@@ -12,13 +12,13 @@ Periodic table guessing game made in tkinter. The program uses the csv file [per
 
 # GUI
 
-The GUI has a title at the top, the atomic number of the element to guess, an entry box to enter the answer, a submit button, a "give up" button and an exit button, as below:
+The GUI has a title at the top, the atomic number of the element to guess, an entry box to enter the answer, a submit button, a show answer button, a reset button and an exit button, as below:
 
 ![Main GUI](./images/gui.png)
 
 # Give Up
 
-When the user clicks the "give up" button, a popup window says what the correct answer was, as below:
+When the user clicks the show answer button, a popup window says what the correct answer was, as below:
 
 !["Give Up" popup](./images/give-up1.png)
 
@@ -28,10 +28,11 @@ Then, the full details of the element are shown in a new popup window:
 
 Afterwards, a new element is automatically randomly chosen so the game can continue.
 
+The reset button just chooses a new element without showing the element information.
+
 # Incorrect answers and hints
 
-If the user guesses the element incorrectly, a popup says how many guesses are left (out of 5) and then a new popup window shows a hint.
-
+If the user guesses incorrectly a popup message shows the following:
 
 ![Incorrect answer](./images/incorrect.png)
 
@@ -40,27 +41,20 @@ The user is given 3 hints (one after each incorrect answer) and then for the las
 The hints are:
 
 1. The group number of the element:
-
-![Hint 1](./images/hint1.png)
-
 2. The type of element:
-
-![Hint 2](./images/hint2.png)
-
 3. The state of matter at room temperature
 
-![Hint 3](./images/hint3.png)
+After 3 the user is out of hints:
+![No more hints](./images/no-hints.png)
 
-4. No more hints after 3:
+If a player's answer is a valid element but not the right one, the element's name and atomic number are shown:
+![Valid element](./images/valid-element.png)
 
-![No more hints](./images/hint4.png)
 
-
-When the player has run out of guesses the following popup messages show up, showing the right answer.
+After the player has run out of guesses, the popup message shows what the element was and another shows the full details of that element.
 
 ![Incorrect 2](./images/incorrect2.png)
 ![Incorrect 3](./images/incorrect3.png)
-![Incorrect 4](./images/incorrect4.png)
 
 Then, a new element is randomly chosen so the game can continue.
 

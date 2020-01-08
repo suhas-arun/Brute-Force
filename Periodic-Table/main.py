@@ -11,25 +11,28 @@ class Game:
     def __init__(self):
         self.root = tkinter.Tk()
         self.root.title("Periodic Table Game")
+        self.root.resizable(False, False)
         self.element = None
         self.elements = []
         self.bg_colour = "gray20"
         self.fg_colour = "gray90"
         self.entry = None
 
+        self.initialise_elements()
         self.get_new_element()
 
         self.root.mainloop()
 
-    def get_new_element(self):
-        """Gets new element from the data and appends it to list of already used elements"""
+    def initialise_elements(self):
+        """Read csv file and return list of elements"""
         with open("periodic-table.csv") as csvfile:
             elements = csv.reader(csvfile, delimiter=",")
-            self.element = Element(random.choice(list(elements)[1:]))
-            while self.element in self.elements:
-                self.element = Element(random.choice(list(elements)[1:]))
-            self.elements.append(self.element)
+            for element in list(elements)[1:]:
+                self.elements.append(Element(element))
 
+    def get_new_element(self):
+        """Randomly selects new element"""
+        self.element = random.choice(self.elements)
         self.display()
 
     def submit(self):
@@ -39,7 +42,7 @@ class Game:
         if answer in [self.element.symbol, self.element.name]:
             self.correct_answer()
         else:
-            self.wrong_answer()
+            self.wrong_answer(answer)
 
     def correct_answer(self):
         """Called when user gets a right answer"""
@@ -47,27 +50,43 @@ class Game:
         self.element.show_info()
         self.get_new_element()
 
-    def wrong_answer(self):
-        """Called when user gets the question wrong"""
-        tkinter.messagebox.showinfo(
-            "Incorrect",
-            f"You got it wrong.\n\nYou have {4-self.element.hints} guess(es) left",
+    def wrong_answer(self, answer):
+        """
+        Called when user gets the question wrong. If the answer is wrong
+        but a valid element is entered, the element's atomic number is shown.
+        """
+
+        end = False
+        popup_message = (
+            f"You got it wrong.\n\nYou have {4-self.element.hints} guess(es) left.\n\n"
         )
+
+        for element in self.elements:
+            if answer in [element.symbol, element.name]:
+                popup_message += (
+                    f"You guessed {element.name} which is number {element.number}.\n\n"
+                )
+                break
+
         hint = self.element.get_hint()
         self.element.hints += 1
 
         if hint:
-            tkinter.messagebox.showinfo("Hint", "Hint: " + hint)
+            popup_message += f"Hint: {hint}"
         else:
-            tkinter.messagebox.showinfo(
-                "Unlucky",
-                f"The correct answer was {self.element.symbol} - {self.element.name}.",
+            popup_message += (
+                f"The correct answer was {self.element.symbol} - {self.element.name}."
             )
+            end = True
+
+        tkinter.messagebox.showinfo("Incorrect answer", popup_message)
+
+        if end:
             self.element.show_info()
             self.get_new_element()
 
-    def give_up(self):
-        """Goes to the next symbol"""
+    def show_answer(self):
+        """Shows answer"""
         tkinter.messagebox.showinfo(
             "Unlucky",
             f"The correct answer was {self.element.symbol} - {self.element.name}.",
@@ -86,7 +105,7 @@ class Game:
             fg=self.fg_colour,
             font="roboto 20 bold",
             padx=20,
-        ).grid(row=0, columnspan=3)
+        ).grid(row=0, columnspan=4)
 
         # element symbol label
         tkinter.Label(
@@ -96,7 +115,7 @@ class Game:
             width=10,
             pady=10,
             bg=self.bg_colour,
-        ).grid(row=1, columnspan=3)
+        ).grid(row=1, columnspan=4)
 
         self.entry = tkinter.Entry(font="roboto 12")
 
@@ -106,40 +125,54 @@ class Game:
         # remove placeholder when entry box is clicked on
         self.entry.bind("<FocusIn>", lambda args: self.entry.delete("0", "end"))
 
-        self.entry.grid(row=2, columnspan=3)
+        self.entry.grid(row=2, columnspan=4)
 
         buttons_frame = tkinter.Frame(pady=10, bg=self.bg_colour)
-        buttons_frame.grid(row=3, columnspan=3)
+        buttons_frame.grid(row=3, columnspan=4)
 
-        # give up button
+        # show answer button
         tkinter.Button(
-            buttons_frame,
-            text="Give up",
+            # buttons_frame,
+            text="Show\nanswer",
+            width=7,
             fg=self.fg_colour,
             bg=self.bg_colour,
-            font="roboto 12 bold",
-            command=self.give_up,
-        ).grid(row=0, column=0)
+            font="roboto 12",
+            command=self.show_answer,
+        ).grid(row=4, column=0, pady=10)
+
+        # reset button
+        tkinter.Button(
+            # buttons_frame,
+            text="Reset",
+            width=7,
+            fg=self.fg_colour,
+            bg=self.bg_colour,
+            font="roboto 12",
+            command=self.get_new_element,
+        ).grid(row=4, column=1, pady=10)
 
         # submit button
         tkinter.Button(
-            buttons_frame,
+            # buttons_frame,
             text="Submit",
+            width=7,
             fg=self.fg_colour,
             bg=self.bg_colour,
             font="roboto 12 bold",
             command=self.submit,
-        ).grid(row=0, column=1)
+        ).grid(row=4, column=2, pady=10)
 
         # exit button
         tkinter.Button(
-            buttons_frame,
+            # buttons_frame,
             text="Exit",
+            width=7,
             fg=self.fg_colour,
             bg=self.bg_colour,
-            font="roboto 12 bold",
+            font="roboto 12",
             command=self.root.destroy,
-        ).grid(row=0, column=2)
+        ).grid(row=4, column=3, pady=10)
 
 
 class Element:
