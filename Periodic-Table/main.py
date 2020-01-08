@@ -127,12 +127,8 @@ class Game:
 
         self.entry.grid(row=2, columnspan=4)
 
-        buttons_frame = tkinter.Frame(pady=10, bg=self.bg_colour)
-        buttons_frame.grid(row=3, columnspan=4)
-
         # show answer button
         tkinter.Button(
-            # buttons_frame,
             text="Show\nanswer",
             width=7,
             fg=self.fg_colour,
@@ -143,7 +139,6 @@ class Game:
 
         # reset button
         tkinter.Button(
-            # buttons_frame,
             text="Reset",
             width=7,
             fg=self.fg_colour,
@@ -154,7 +149,6 @@ class Game:
 
         # submit button
         tkinter.Button(
-            # buttons_frame,
             text="Submit",
             width=7,
             fg=self.fg_colour,
@@ -165,7 +159,6 @@ class Game:
 
         # exit button
         tkinter.Button(
-            # buttons_frame,
             text="Exit",
             width=7,
             fg=self.fg_colour,
