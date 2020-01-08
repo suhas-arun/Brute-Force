@@ -40,8 +40,8 @@ The user is given 3 hints (one after each incorrect answer) and then for the las
 
 The hints are:
 
-1. The group number of the element:
-2. The type of element:
+1. The group number of the element
+2. The type of element
 3. The state of matter at room temperature
 
 After 3 the user is out of hints:
