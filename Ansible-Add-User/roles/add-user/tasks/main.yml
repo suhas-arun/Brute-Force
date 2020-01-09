@@ -1,0 +1,11 @@
+---
+# tasks file for add-user
+- name: Add user
+  become: yes
+  become_method: sudo
+  user:
+    name: "{{ item }}"
+    # password: 
+    shell: /bin/bash
+  with_items:
+    - new-user

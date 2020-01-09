@@ -1,0 +1,3 @@
+---
+# vars file for add-user
+with_items: "{{ somelist }}"
