@@ -1,0 +1,14 @@
+---
+- name: Install Tensorflow
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Update pip
+      pip:
+       name: pip
+       state: latest
+ 
+    - name: Install Tensorflow
+      pip:
+        name: tensorflow
+        state: latest
