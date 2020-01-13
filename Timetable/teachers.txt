@@ -1,0 +1,11 @@
+10
+Maths,12
+Maths,12
+Programming,12
+Programming,12
+Chemistry,12
+Chemistry,12
+Biology,12
+Biology,12
+Physics,12
+Physics,12
