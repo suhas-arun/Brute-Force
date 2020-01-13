@@ -1,0 +1,13 @@
+---
+# tasks file for install-tensorflow
+- name: Update pip
+  pip:
+    name: pip
+    state: latest
+    extra_args: --user
+
+- name: Install Tensorflow
+  pip:
+    name: tensorflow
+    state: latest
+    extra_args: --user

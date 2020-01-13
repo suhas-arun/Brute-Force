@@ -4,4 +4,4 @@ Tensorflow is an open source machine learning library which was developed by the
 
 Below is a recording of the installation.
 
-[![asciicast](https://asciinema.org/a/293239.svg)](https://asciinema.org/a/293239)
+[![asciicast](https://asciinema.org/a/293338.svg)](https://asciinema.org/a/293338)
