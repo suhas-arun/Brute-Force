@@ -15,8 +15,8 @@ COLOURS = [
 ]
 
 for lower, upper in COLOURS:
-    lower = numpy.array(lower, dtype="uint8")
-    upper = numpy.array(upper, dtype="uint8")
+    lower = numpy.array(lower)
+    upper = numpy.array(upper)
 
     mask = cv2.inRange(image, lower, upper)
     output = cv2.bitwise_and(image, image, mask=mask)
