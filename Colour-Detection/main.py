@@ -9,9 +9,9 @@ while not os.path.isfile(f"./{image_path}") or image_path.split(".")[1] not in [
 
 image = cv2.imread(image_path)
 COLOURS = [
-    ([0, 0, 100], [70, 70, 255]),  # RED
-    ([0, 100, 0], [80, 255, 80]),  # GREEN
-    ([0, 180, 180], [50, 255, 255]),  # YELLOW
+    ([0, 0, 100], [90, 90, 255]),  # RED
+    ([0, 100, 0], [140, 255, 120]),  # GREEN
+    ([0, 190, 200], [200, 255, 255]),  # YELLOW
 ]
 
 for lower, upper in COLOURS:
