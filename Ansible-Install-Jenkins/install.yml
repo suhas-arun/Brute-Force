@@ -1,0 +1,7 @@
+---
+- name: Install Jenkins on Fedora
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+  - install-jenkins

@@ -1,0 +1,20 @@
+---
+- name: Download Jenkins repo
+  get_url:
+    url: http://pkg.jenkins-ci.org/redhat/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+  
+- name: Get rpm key
+  rpm_key:
+    state: present
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+- name: Install java
+  dnf:
+    name: java-11-openjdk
+    state: latest
+
+- name: Install Jenkins
+  dnf:
+    name: jenkins
+    state: latest
