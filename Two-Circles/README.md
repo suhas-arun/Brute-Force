@@ -8,3 +8,12 @@ The state of the two circles can be:
 * intersecting once
 * not intersecting
 * intersecting twice
+
+
+Below are some screenshots showing the different possible states:
+
+![concentric.png](./images/concentric.png)
+![same.png](./images/same.png)
+![no-intersection.png](./images/no-intersection.png)
+![tangent.png](./images/tangent.png)
+![two-intersections.png](./images/two-intersections.png)

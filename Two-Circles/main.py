@@ -4,15 +4,6 @@ import sys
 import pygame
 
 
-def get_inputs():
-    """Get radii and distance between circles"""
-    radius1 = int(input("Enter the radius of the first circle: "))
-    radius2 = int(input("Enter the radius of the second circle: "))
-    distance = int(input("Enter the distance between the two circles: "))
-
-    return (radius1, radius2, distance)
-
-
 def identify_circles(radius1, radius2):
     """Returns which circle is bigger and which is smaller"""
     if radius1 > radius2:
@@ -56,7 +47,10 @@ def draw_circles(bigger, smaller, distance, state):
 
 
 if __name__ == "__main__":
-    radius1, radius2, distance = get_inputs()
+    radius1 = int(input("Enter the radius of the first circle: "))
+    radius2 = int(input("Enter the radius of the second circle: "))
+    distance = int(input("Enter the distance between the two circles: "))
+
     bigger, smaller = identify_circles(radius1, radius2)
 
     scale_factor = int(50 / bigger)
