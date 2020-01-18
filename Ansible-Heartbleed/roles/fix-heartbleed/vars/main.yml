@@ -1,0 +1,10 @@
+---
+services:
+  - nginx
+  - httpd
+  - postgresql
+  - php-fpm
+  - openvpn
+  - postfix
+  - monit
+  - unbound

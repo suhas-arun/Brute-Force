@@ -1,0 +1,25 @@
+---
+- name: Updating OpenSSL packages
+  dnf:
+    state: latest
+    update_only: yes
+    name: "{{ services }}"
+
+- name: Updating OpenSSL
+  dnf:
+    state: latest
+    name: openssl
+
+- name: Restarting services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  failed_when: false
+  with_items: "{{ services }}"
+
+- name: Checking for vulnerable processes
+  shell: lsof -n | grep ssl | grep DEL | wc -l
+  register: result
+
+- debug:
+    var: result["stdout"]
