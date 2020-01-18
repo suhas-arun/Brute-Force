@@ -1,3 +1,3 @@
-# Google-Code-In
+# Google Code In
 
-Repository for my Google Code-In tasks.
+My 2019 Google Code In tasks for Fedora.
