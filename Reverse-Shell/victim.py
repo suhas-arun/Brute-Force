@@ -1,3 +1,4 @@
+"""Victim script"""
 import socket
 import subprocess
 import sys

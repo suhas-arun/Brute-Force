@@ -1,3 +1,4 @@
+"""Attacker script"""
 import socket
 
 HOST, PORT = (socket.gethostbyname(socket.gethostname()), 5000)
