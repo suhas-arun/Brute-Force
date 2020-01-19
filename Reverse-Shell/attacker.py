@@ -5,7 +5,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 sock.bind((HOST, PORT))
 
-sock.listen(5)
+sock.listen(1)
 
 print(f"Listening at port {PORT}")
 
